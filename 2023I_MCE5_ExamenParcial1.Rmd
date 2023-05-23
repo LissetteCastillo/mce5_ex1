@@ -16,84 +16,54 @@ output:
 
 <center>![](https://www.ikiam.edu.ec/wp-content/uploads/2021/12/logo-ikiam-1.png)</center>
 
--   **FUNDAMENTAL: La entrega es el enlace de GitHub.** A partir de una bifurcación de la carpeta del examen de GitHub, cree una carpeta en su computador donde guarden este cuaderno .Rmd y la data que van a utilizar. Definan a esa carpeta como su directorio de trabajo.
-
--   Arriba, donde dice "author", deben cambiar por sus datos.
-
--   Los codigos deben ser escritos dentro de las cajas `{r}` o dentro de las cajas indicadas abajo de las preguntas.
-
--   Genere un documento html de este cuaderno .Rmd.
-
--   Guarde todos los documentos y figuras en una carpeta "mce5_exame1", copie y pegue el enlace en el aula virtual, donde dice "ExamenParcial1".
-
--   **FUNDAMENTAL: No imprima tablas completas, si quiere mostrar algo use la función `head()`.**
-
--   **FUNDAMENTAL: Todo bloque de código (30%) debe ir acompañado de una explicación del resultado (70%). Si no tiene la explicación no será considerado para calificar.**
-
--   **FUNDAMENTAL: La honestidad académica es fundamental en su formación, escriba ideas propias, evite el plagio y la copia que incluye el uso indebido de herramientas de inteligencia artificial.**
-
-# **[2 PUNTOS] Control de cambios.**
-
--   Realice la bifurcación de la carpeta del Examen
-
--   Cree una carpeta en su conputador con "Control de Cambios" usando Git
-
--   Cada vez que responda una pregunta, envíe los cambios con un `commit` similar a `Apellido Nombre ha realizado el ejercicio ##`.
-
 # **[2 PUNTOS] Diseño, especies raras.**
 
 En el estudio realizado por <a href="https://doi.org/10.1111/jvs.13185">Sanches -Martin R., Verdú M. y Montensinos-Navarro A. (2023)</a> evaluan cómo la facilitación interespecífica puede mantener la diversidad a lo largo de la vida de la especie al evitar la extinción de especies localmente raras en etapas juveniles y reducir las disparidades de rendimiento entre vecinos de diferentes especies en etapas maduras.. Suponga que quiere replicar este estudio en alguna zona del Ecuador. Para ello inicie respondiendo las siguientes preguntas:
 
-## Para su potencial investigación ¿Cuál sería su hipótesis ? 
+## Para su potencial investigación ¿Cuál sería su hipótesis ?
 
-La facilitación entre especies promueve el establecimiento exitoso de especies raras al proporcionar beneficios a través de interacciones positivas entre individuos, lo que a su vez reduce las disparidades de rendimiento entre los adultos de diferentes especies.
+```{r}
+"La hipotesis de investigación plantea que la facilitacion promueve la sobrevivencia entre las especies"
 
+
+``{r}
 ## Muestra
 library(dplyr)
+```
 
-Replique el diseño realizado en el artículo en localidades del Ecuador y genere el archivo **rarespecies.csv**.
+```{r}
+sitios = c("San Antonio", "Las Palmas", " Muyuna"," Tazayacu")
+data <- data.frame(Sitio = mites)
+write.csv(data, file = "rarespecies.csv", row.names=FALSE)
+```
 
-```{r crd_anfibios}
-sitios = c("Puyo", "Tena", "Santa Clara")
+```{r}
+install.packages("ggplot2")
+read.csv("BASEDEDATOS_MCE5")
+
+
+
+```
+```{r}
+# Cargar los datos
+datos <- read.csv("BASEDEDATOS_MCE5")  # Cambia "ruta_del_archivo.csv" por la ruta y nombre de tu archivo CSV
+
+# Gráfica de dispersión
+plot(datos$x, datos$y, main = "Basededatos_MCE5", xlab = "Eje X", ylab = "Eje Y")
 
 ```
 
-
-
-# Crear un vector con las localidades del Ecuador
-sitios <- c("Puyo", "Tena", "Santa Clara")
-
-# Crear un marco de datos vacío para almacenar los datos
-datos <- data.frame(Localidad = character(),
-                    Especie = character(),
-                    Variable1 = numeric(),
-                    Variable2 = numeric())
+Replique el diseño realizado en el artículo en localidades del Ecuador y genere el archivo **rarespecies.csv**.
 
 # Realizar un bucle para cada localidad
-for (sitio in sitios) {
-  # Generar los datos correspondientes a cada localidad
-  # Aquí deberías agregar el código necesario para generar los datos
-  # basándote en el diseño del artículo
-  
-  # Agregar los datos generados al marco de datos principal
-  datos_localidad <- data.frame(Localidad = sitio,
-                                Especie = # agregar especies generadas,
-                                Variable1 = # agregar valores de Variable1 generados,
-                                Variable2 = # agregar valores de Variable2 generados)
-  datos <- bind_rows(datos, datos_localidad)
-}
+
+for (sitio in sitios) { \# Generar los datos correspondientes a cada localidad \# Aquí deberías agregar el código necesario para generar los datos \# basándote en el diseño del artículo
+
+\# Agregar los datos generados al marco de datos principal datos_localidad \<- data.frame(Localidad = sitio, Especie = \# agregar especies generadas, Variable1 = \# agregar valores de Variable1 generados, Variable2 = \# agregar valores de Variable2 generados) datos \<- bind_rows(datos, datos_localidad) }
 
 # Guardar los datos en un archivo CSV
+
 write.csv(datos, file = "rarespecies.csv", row.names = FALSE)
-
-
-
-
-
-
-
-
-
 
 Explique el resultado muestra:
 
