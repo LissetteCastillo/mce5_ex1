@@ -33,25 +33,18 @@ library(dplyr)
 
 ```{r}
 sitios = c("San Antonio", "Las Palmas", " Muyuna"," Tazayacu")
-data <- data.frame(Sitio = mites)
+data <- data.frame(Sitio = "BASEDEDATOS_MCE5")
 write.csv(data, file = "rarespecies.csv", row.names=FALSE)
 ```
 
 ```{r}
 install.packages("ggplot2")
 read.csv("BASEDEDATOS_MCE5")
-
-
-
-```
-```{r}
 # Cargar los datos
-datos <- read.csv("BASEDEDATOS_MCE5")  # Cambia "ruta_del_archivo.csv" por la ruta y nombre de tu archivo CSV
-
-# Gráfica de dispersión
-plot(datos$x, datos$y, main = "Basededatos_MCE5", xlab = "Eje X", ylab = "Eje Y")
-
+datos <- read.csv("BASEDEDATOS_MCE5")  
 ```
+
+\`\`\`
 
 Replique el diseño realizado en el artículo en localidades del Ecuador y genere el archivo **rarespecies.csv**.
 
@@ -71,7 +64,8 @@ Explique el resultado muestra:
 
 ## Variables
 
-¿Cuáles son sus variables (dependiente(s) e independiente(s))? Explique cada una de las variables
+Las variables independientes del estudio son 
+
 
 **Respuesta:**
 
