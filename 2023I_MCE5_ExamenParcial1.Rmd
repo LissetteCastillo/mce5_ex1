@@ -16,86 +16,117 @@ output:
 
 <center>![](https://www.ikiam.edu.ec/wp-content/uploads/2021/12/logo-ikiam-1.png)</center>
 
+-   **FUNDAMENTAL: La entrega es el enlace de GitHub.** A partir de una bifurcación de la carpeta del examen de GitHub, cree una carpeta en su computador donde guarden este cuaderno .Rmd y la data que van a utilizar. Definan a esa carpeta como su directorio de trabajo.
 
-Bienvenidos al examen parcial de Métodos Cuantitativos en Ecología [MCE5 - 2023I]. Para esta evaluación utilice este cuaderno de R Markdown y tenga en cuenta las siguientes instruciones:
+-   Arriba, donde dice "author", deben cambiar por sus datos.
 
-* **FUNDAMENTAL: La entrega es el enlace de GitHub.** A partir de una bifurcación de la carpeta del examen de GitHub, cree una carpeta en su computador donde guarden este cuaderno .Rmd y la data que van a utilizar. Definan a esa carpeta como su directorio de trabajo. 
+-   Los codigos deben ser escritos dentro de las cajas `{r}` o dentro de las cajas indicadas abajo de las preguntas.
 
-* Arriba, donde dice "author", deben cambiar por sus datos.
+-   Genere un documento html de este cuaderno .Rmd.
 
-* Los codigos deben ser escritos dentro de las cajas ```{r} ``` o dentro de las cajas indicadas abajo de las preguntas.
+-   Guarde todos los documentos y figuras en una carpeta "mce5_exame1", copie y pegue el enlace en el aula virtual, donde dice "ExamenParcial1".
 
-* Genere un documento html de este cuaderno .Rmd. 
+-   **FUNDAMENTAL: No imprima tablas completas, si quiere mostrar algo use la función `head()`.**
 
-* Guarde todos los documentos y figuras en una carpeta "mce5_exame1", copie y pegue el enlace en el aula virtual, donde dice "ExamenParcial1".
+-   **FUNDAMENTAL: Todo bloque de código (30%) debe ir acompañado de una explicación del resultado (70%). Si no tiene la explicación no será considerado para calificar.**
 
-* **FUNDAMENTAL: No imprima tablas completas, si quiere mostrar algo use la función ```head()```.**
-
-* **FUNDAMENTAL: Todo bloque de código (30%) debe ir acompañado de una explicación del resultado (70%). Si no tiene la explicación no será considerado para calificar.**  
-
-* **FUNDAMENTAL: La honestidad académica es fundamental en su formación, escriba ideas propias, evite el plagio y la copia que incluye el uso indebido de herramientas de inteligencia artificial.**
-
+-   **FUNDAMENTAL: La honestidad académica es fundamental en su formación, escriba ideas propias, evite el plagio y la copia que incluye el uso indebido de herramientas de inteligencia artificial.**
 
 # **[2 PUNTOS] Control de cambios.**
 
-* Realice la bifurcación de la carpeta del Examen
+-   Realice la bifurcación de la carpeta del Examen
 
-* Cree una carpeta en su conputador con "Control de Cambios" usando Git
+-   Cree una carpeta en su conputador con "Control de Cambios" usando Git
 
-* Cada vez que responda una pregunta, envíe los cambios con un ```commit``` similar a `Apellido Nombre ha realizado el ejercicio ##`. 
+-   Cada vez que responda una pregunta, envíe los cambios con un `commit` similar a `Apellido Nombre ha realizado el ejercicio ##`.
 
 # **[2 PUNTOS] Diseño, especies raras.**
 
-En el estudio realizado por <a href="https://doi.org/10.1111/jvs.13185">Sanches -Martin R., Verdú M. y Montensinos-Navarro A. (2023)</a> evaluan cómo la facilitación interespecífica puede mantener la diversidad a lo largo de la vida de la especie al evitar la extinción de especies localmente raras en etapas juveniles y reducir las disparidades de rendimiento entre vecinos de diferentes especies en etapas maduras.. Suponga que quiere replicar este estudio en alguna zona del Ecuador. Para ello inicie respondiendo las siguientes preguntas:  
+En el estudio realizado por <a href="https://doi.org/10.1111/jvs.13185">Sanches -Martin R., Verdú M. y Montensinos-Navarro A. (2023)</a> evaluan cómo la facilitación interespecífica puede mantener la diversidad a lo largo de la vida de la especie al evitar la extinción de especies localmente raras en etapas juveniles y reducir las disparidades de rendimiento entre vecinos de diferentes especies en etapas maduras.. Suponga que quiere replicar este estudio en alguna zona del Ecuador. Para ello inicie respondiendo las siguientes preguntas:
 
-## Para su potencial investigación ¿Cuál sería su hipótesis ? (Explique)
+## Para su potencial investigación ¿Cuál sería su hipótesis ? 
 
-**Respuesta:**
-
+La facilitación entre especies promueve el establecimiento exitoso de especies raras al proporcionar beneficios a través de interacciones positivas entre individuos, lo que a su vez reduce las disparidades de rendimiento entre los adultos de diferentes especies.
 
 ## Muestra
+library(dplyr)
 
-Replique el diseño realizado en el artículo en localidades del Ecuador y genere el archivo **rarespecies.csv**. 
+Replique el diseño realizado en el artículo en localidades del Ecuador y genere el archivo **rarespecies.csv**.
 
 ```{r crd_anfibios}
-sitios = c("Sitio1", "Chuquitos", "Chompi")
+sitios = c("Puyo", "Tena", "Santa Clara")
 
 ```
-Explique el resultado muestra: 
+
+
+
+# Crear un vector con las localidades del Ecuador
+sitios <- c("Puyo", "Tena", "Santa Clara")
+
+# Crear un marco de datos vacío para almacenar los datos
+datos <- data.frame(Localidad = character(),
+                    Especie = character(),
+                    Variable1 = numeric(),
+                    Variable2 = numeric())
+
+# Realizar un bucle para cada localidad
+for (sitio in sitios) {
+  # Generar los datos correspondientes a cada localidad
+  # Aquí deberías agregar el código necesario para generar los datos
+  # basándote en el diseño del artículo
+  
+  # Agregar los datos generados al marco de datos principal
+  datos_localidad <- data.frame(Localidad = sitio,
+                                Especie = # agregar especies generadas,
+                                Variable1 = # agregar valores de Variable1 generados,
+                                Variable2 = # agregar valores de Variable2 generados)
+  datos <- bind_rows(datos, datos_localidad)
+}
+
+# Guardar los datos en un archivo CSV
+write.csv(datos, file = "rarespecies.csv", row.names = FALSE)
+
+
+
+
+
+
+
+
+
+
+Explique el resultado muestra:
 
 **Respuesta:**
 
-
-
 ## Variables
+
 ¿Cuáles son sus variables (dependiente(s) e independiente(s))? Explique cada una de las variables
 
 **Respuesta:**
 
-
 ## Gráfica e hipótesis
+
 En una hoja de papel dibuje un gráfico hipotetico basado en la figura 4 del artículo mostrando [Coloque adecuadamente las leyendas]. Describa su figura justifique su razonamiento.
 
 **Respuesta (adjunte una foto de la imagen o genere una gráfica con código)**
+
 <center>![](hola.png)</center>
 
+# \*\*[6 PUNTOS] Regresiones
 
+En esta parte debe aplicar las regresiones lineal, linearizada y generalizada sobre la presencia de ácaros en musgos. Una de las especies analizadas es *Galumma sp.* cuya abundancia presencia y proporción es posiblemente afectada por las siguiente cinco variables ambientales como densidad de sustrato, el tipo de sustrato, el contenido de agua, si se tiene o no arbustos en la cercanía y la topografía del suelo. Utilice la data `mites.csv` y responda los siguientes items.
 
-
-# **[6 PUNTOS] Regresiones
-
-En esta parte debe aplicar las regresiones lineal, linearizada y generalizada sobre la presencia de ácaros en musgos. Una de las especies analizadas es *Galumma sp.* cuya abundancia presencia y proporción es posiblemente afectada por las siguiente cinco variables ambientales como densidad de sustrato, el tipo de sustrato, el contenido de agua, si se tiene o no arbustos en la cercanía y la topografía del suelo. Utilice la data ```mites.csv``` y responda los siguientes items. 
-
-- ¿Cuál es el efecto de las variables ambientales en la i) abundancia de ii) abundancia y iii) proporción de la especie *Galumma sp.*?
+-   ¿Cuál es el efecto de las variables ambientales en la i) abundancia de ii) abundancia y iii) proporción de la especie *Galumma sp.*?
 
 Para responder esta pregunta debe generar las hipótesis y probar las hipótesis (código y explicación), asimismo visualizar con etiquetas adecuadas. Considere realizar lo siguiente:
 
-- Realizar un análisis exploratorio.
+-   Realizar un análisis exploratorio.
 
-- Realizar regresiones lineales de cada variable de respuesta y variables efectoras, univariable o multivariable. Verifique los supuestos de la regresión. 
+-   Realizar regresiones lineales de cada variable de respuesta y variables efectoras, univariable o multivariable. Verifique los supuestos de la regresión.
 
-- Realizar regresiones linearizadas de cada variable de respuesta y variables efectoras, univariable o multivariable. 
+-   Realizar regresiones linearizadas de cada variable de respuesta y variables efectoras, univariable o multivariable.
 
-- Realizar regresiones lineales generalizadas de cada variable de respuesta y variables efectoras, univariable o multivariable. 
+-   Realizar regresiones lineales generalizadas de cada variable de respuesta y variables efectoras, univariable o multivariable.
 
-- Comparar de la bondad de las regresiones. 
+-   Comparar de la bondad de las regresiones.
